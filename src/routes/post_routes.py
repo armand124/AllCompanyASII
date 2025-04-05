@@ -1,12 +1,14 @@
 from flask import Blueprint
 from controllers.post_controller import *
 
+from controllers.comment_controller import get_comments_by_post_id
+
 posts_routes = Blueprint("posts_routes", __name__)
 
 
 @posts_routes.route('/', methods=['GET'])
 def index():
-    return jsonify("Hello, World!")
+    return jsonify("Hello, Pog")
 
 
 @posts_routes.route('/posts', methods=['POST'])
