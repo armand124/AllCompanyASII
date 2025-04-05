@@ -1,6 +1,5 @@
 from flask import jsonify, request
-from models import Post, db
-
+from models import Post, db, Comment
 def add_post():
     try:
         data = request.get_json()
@@ -56,6 +55,15 @@ def get_posts():
         })
     return jsonify(result), 200
 
+def delete_post(_post_id):
+    post = db.session.get(Post, _post_id)
+    if post:
+        comments = Comment.query.filter_by(post_id=_post_id).all()
+        for comment in comments:
+            db.session.delete(comment)
+        db.session.delete(post)
+        db.session.commit()
+        return jsonify({'message': 'Post deleted'}), 200
 
 def like_post(post_id):
     post = db.session.get(Post, post_id)

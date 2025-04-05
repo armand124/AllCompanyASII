@@ -14,3 +14,13 @@ def list_comments(post_id):
 @comment_routes.route('/comments/<int:comment_id>', methods=['GET'])
 def get_comment(comment_id):
     return get_comment_by_id(comment_id)
+
+@comment_routes.route('/comments/<int:comment_id>', methods=['POST'])
+def like_comment_by_id(comment_id):
+    return like_comment(comment_id)
+
+@comment_routes.route('/comments/<int:comment_id>', methods=['DELETE'])
+def del_comment(comment_id):
+    return delete_comment(comment_id)
+
+

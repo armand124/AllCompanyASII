@@ -66,3 +66,11 @@ def like_comment(comment_id):
     comment.save()
     return jsonify({"message" : f"Comment liked. Now the comment has : {comment.likes} likes."})
 
+def delete_comment(comment_id):
+    comment = db.session.get(Comment,comment_id)
+    if not comment:
+        return jsonify({'message' : 'Comment not found'}), 404
+    else:
+        db.session.delete(comment)
+        db.session.commit()
+        return jsonify({'message' : f'Comment deleted {comment.content}'}), 200

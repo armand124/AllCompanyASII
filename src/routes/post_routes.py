@@ -43,3 +43,7 @@ def create_heart(post_id):
 @posts_routes.route('/posts/<int:post_id>/hearts', methods=['GET'])
 def list_hearts(post_id):
     return get_hearts(post_id)
+
+@posts_routes.route('/posts/<int:post_id>', methods=['DELETE'])
+def del_post(post_id):
+    return delete_post(post_id)
