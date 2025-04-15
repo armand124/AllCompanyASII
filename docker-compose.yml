@@ -1,14 +1,14 @@
 services:
   postgres:
     image: postgres
-    container_name: my_postgres
+    container_name: CONTAINER_NAME
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: secretpassword
-      POSTGRES_DB: socialmediadb
+      POSTGRES_USER: DB_USER
+      POSTGRES_PASSWORD: DB_PASSWORD
+      POSTGRES_DB: DB_DATABASE
     ports:
-      - "9000:5432"
+      - PORTS
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
