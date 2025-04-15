@@ -1,4 +1,4 @@
-#Social Media Platform dedicated for 
-
+# ASII Social Media Platform (Under development) 
 Backend: Flask, Docker, PostgreSQL (SQL Alchemy)
-Under development
+
+Din Copou și până-n vale, ASII e cel mai tare!
